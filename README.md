@@ -3,6 +3,8 @@ Checks for RX 570/580 restocks on NewEgg and BestBuy
 
 Live [@rx570](https://twitter.com/rx570)
 
+Tips: 17iSNnZcDgWnmHd2CaaXmE9rWW49ecgnR3
+
 ![gif](/images/term.gif)
 
 ## How it works:
