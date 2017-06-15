@@ -88,7 +88,10 @@ def bestBuy():
 		elif itemStock == "SOLD_OUT_ONLINE" or itemStock == "CHECK_STORES":
 			print("BestBuy - "+itemName+" - OOS")
 
+def main():
+	print(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+	newEgg()
+	bestBuy()
 
-print(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
-newEgg()
-bestBuy()
+if __name__ == '__main__':
+	main()
