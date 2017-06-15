@@ -18,7 +18,7 @@ def sendTweet(link, site):
 	alert = "\U0001f6a8 "
 	sos = "\U0001f198 "
 	flag = "\U0001f6a9 "
-	tweet = alert+sos+flag+" NES IN STOCK "+flag+sos+alert
+	tweet = alert+sos+flag+" IN STOCK "+flag+sos+alert
 	tweet += "\nSite: "+site+"\n"
 	tweet += link+"\n"
 	tweet += strftime("%Y-%m-%d %H:%M:%S", gmtime())
@@ -31,11 +31,30 @@ def newEgg():
 		"http://www.ows.newegg.com/Products.egg/14-202-284",
 		'http://www.ows.newegg.com/Products.egg/14-137-123',
 		'http://www.ows.newegg.com/Products.egg/14-202-283',
-		'http://www.ows.newegg.com/Products.egg/14-202-284',
 		'http://www.ows.newegg.com/Products.egg/14-202-285',
 		'http://www.ows.newegg.com/Products.egg/14-131-717',
 		'http://www.ows.newegg.com/Products.egg/14-131-716',
-		'http://www.ows.newegg.com/Products.egg/9SIA7HN5N17482'
+		'http://www.ows.newegg.com/Products.egg/9SIA7HN5N17482',
+		'http://www.ows.newegg.com/Products.egg/2VV-000U-00003',
+		'http://www.ows.newegg.com/Products.egg/14-125-965',
+		'http://www.ows.newegg.com/Products.egg/14-202-282',
+		'http://www.ows.newegg.com/Products.egg/14-126-199',
+		'http://www.ows.newegg.com/Products.egg/14-126-192',
+		'http://www.ows.newegg.com/Products.egg/14-125-961',
+		'http://www.ows.newegg.com/Products.egg/14-125-962',
+		'http://www.ows.newegg.com/Products.egg/14-125-960',
+		'http://www.ows.newegg.com/Products.egg/14-137-135',
+		'http://www.ows.newegg.com/Products.egg/14-137-120',
+		'http://www.ows.newegg.com/Products.egg/14-137-119',
+		'http://www.ows.newegg.com/Products.egg/14-137-117',
+		'http://www.ows.newegg.com/Products.egg/14-137-116',
+		'http://www.ows.newegg.com/Products.egg/14-131-715',
+		'http://www.ows.newegg.com/Products.egg/14-131-719',
+		'http://www.ows.newegg.com/Products.egg/14-131-713',
+		'http://www.ows.newegg.com/Products.egg/14-129-327',
+		'http://www.ows.newegg.com/Products.egg/14-150-796',
+		'http://www.ows.newegg.com/Products.egg/14-150-797',
+		'http://www.ows.newegg.com/Products.egg/14-150-794'
 	]
 	user = {"User-Agent": "Newegg iPhone App / 4.1.2"}
 	for url in urls:
@@ -45,10 +64,14 @@ def newEgg():
 			return
 		stock = stock.json()
 		if stock['Basic']['CanAddToCart'] != False:
-			print("NewEgg - " + stock['Basic']['Title'] + " - In Stock")
-			link = "https://www.newegg.com/Product/Product.aspx?Item=" + stock['Basic']['NeweggItemNumber']
-			sendTweet(link,"NewEgg")
-
+			# check if 3rd Party Seller:
+			if not stock['Basic']['SellerInfo']:
+				print("NewEgg - " + stock['Basic']['Title'] + " - In Stock")
+				link = "https://www.newegg.com/Product/Product.aspx?Item=" + stock['Basic']['NeweggItemNumber']
+				sendTweet(link,"NewEgg")
+				print(url)
+			else:
+				print("NewEgg - " + stock['Basic']['Title'] + " - 3rd Party Seller")
 		else:
 			print("NewEgg - " + stock['Basic']['Title'] + " - OOS")
 
@@ -88,10 +111,12 @@ def bestBuy():
 		elif itemStock == "SOLD_OUT_ONLINE" or itemStock == "CHECK_STORES":
 			print("BestBuy - "+itemName+" - OOS")
 
+
 def main():
 	print(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 	newEgg()
-	bestBuy()
+	# ADD API KEYS TO GET_FROM_MITM_IPHONE_APP FIRST
+	# bestBuy()
 
 if __name__ == '__main__':
 	main()
