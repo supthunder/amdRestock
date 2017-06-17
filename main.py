@@ -3,13 +3,13 @@ import tweepy
 from time import gmtime, strftime
 import json
 
-def sendTweet(link, site):
+def sendTweet(link, site, name):
 	global restock
 	# setup twitter
-	C_KEY = ""
-	C_SECRET = ""
-	A_TOKEN = ""
-	A_TOKEN_SECRET = ""
+	C_KEY = "C_KEY"
+	C_SECRET = "C_SECRET"
+	A_TOKEN = "A_TOKEN"
+	A_TOKEN_SECRET = "A_TOKEN_SECRET"
 	auth = tweepy.OAuthHandler(C_KEY, C_SECRET)  
 	auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
 	api = tweepy.API(auth)
@@ -19,11 +19,13 @@ def sendTweet(link, site):
 	sos = "\U0001f198 "
 	flag = "\U0001f6a9 "
 	tweet = alert+sos+flag+" IN STOCK "+flag+sos+alert
+	tweet += "\n"+name
 	tweet += "\nSite: "+site+"\n"
 	tweet += link+"\n"
 	tweet += strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	print(tweet)
 	api.update_status(tweet.encode('utf-8'))
+	restock = 1
 
 
 def newEgg():
