@@ -9,7 +9,7 @@ $5 server cost: 17iSNnZcDgWnmHd2CaaXmE9rWW49ecgnR3
 
 ## How it works:
 - Python + Twitter
-- Runs every 21 seconds
+- Runs ```randomint(5,20)``` seconds
 - Uses NewEgg/BestBuy mobile API's
 
 ## Setup:
