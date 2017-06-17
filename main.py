@@ -3,6 +3,19 @@ import tweepy
 from time import gmtime, strftime
 import json
 
+def getName(name):
+	product = "RX "
+	if "570" in name:
+		product += "570"
+	else:
+		product += "580"
+
+	if "4G" in name:
+		product += " 4GB"
+	else:
+		product += " 8GB"
+	return product
+
 def sendTweet(link, site, name):
 	global restock
 	# setup twitter
