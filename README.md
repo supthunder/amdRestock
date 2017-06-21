@@ -1,11 +1,11 @@
 # amdRestock
-Checks for RX 570/580 restocks on NewEgg, BestBuy, and Amazon
+Checks for RX 570/580 restocks on NewEgg, BestBuy, Amazon, and BHphotovideo
 
 Live on twitter [@rx570](https://www.twitter.com/rx570/)
 
 $5 server cost: 17iSNnZcDgWnmHd2CaaXmE9rWW49ecgnR3
 
-![gif](/images/term2.gif)
+![gif](/images/term3.gif)
 
 ## How it works:
 - Python + Twitter
