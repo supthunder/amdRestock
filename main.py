@@ -43,13 +43,14 @@ def sendTweet(link, site, name):
 
 def newEgg():
 	urls = [
+		"http://www.ows.newegg.com/Products.egg/14-131-712",
 		"http://www.ows.newegg.com/Products.egg/14-202-284",
 		'http://www.ows.newegg.com/Products.egg/14-137-123',
 		'http://www.ows.newegg.com/Products.egg/14-202-283',
 		'http://www.ows.newegg.com/Products.egg/14-202-285',
 		'http://www.ows.newegg.com/Products.egg/14-131-717',
 		'http://www.ows.newegg.com/Products.egg/14-131-716',
-		'http://www.ows.newegg.com/Products.egg/9SIA7HN5N17482',
+		'http://www.ows.newegg.com/Products.egg/14-126-189',
 		'http://www.ows.newegg.com/Products.egg/2VV-000U-00003',
 		'http://www.ows.newegg.com/Products.egg/14-125-965',
 		'http://www.ows.newegg.com/Products.egg/14-202-282',
@@ -69,7 +70,8 @@ def newEgg():
 		'http://www.ows.newegg.com/Products.egg/14-129-327',
 		'http://www.ows.newegg.com/Products.egg/14-150-796',
 		'http://www.ows.newegg.com/Products.egg/14-150-797',
-		'http://www.ows.newegg.com/Products.egg/14-150-794'
+		'http://www.ows.newegg.com/Products.egg/14-150-794',
+		'http://www.ows.newegg.com/Products.egg/14-126-196'
 	]
 	user = {"User-Agent": "Newegg iPhone App / 4.1.2"}
 	for url in urls:
